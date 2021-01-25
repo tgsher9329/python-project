@@ -3,13 +3,6 @@ from dataManip import *
 from color import *
 from checks import *
 import json
-from tabulate import tabulate
-
-# opens the two files we will be using to be able to read them
-# with open('yearData.json', 'r') as yearData:
-#     year = json.load(yearData)
-# with open('habitData.json', 'r') as habitData:
-#     habits = json.load(habitData)
 
 while True:
 
@@ -30,15 +23,19 @@ while True:
 
     # log a new day
     if user_input == '1':
+
+        print("\n1. Log today.")
+        print("2. log another day.")
+        newDay = input()
+
         # checks to make sure that the habits dict is not empty
-        
         if not habitLengthCheck(habits["habits"]):
             print('You need to add some habits before you can view them.')
 
         # goes through the process of adding whether or not they did the habit for a certain day
         elif habitLengthCheck(habits["habits"]):
 
-            logNewDay()
+            logNewDay(newDay)
 
         # this happens when they do not 
         else:
