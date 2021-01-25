@@ -15,12 +15,13 @@ def getTable(table):
 def logNewDay(day):
     if day == "1":
         # log today
-        today = date.today()
-        today = today.strftime("%d/%m/%Y")
-        print(today)
+        # today = date.today()
+        # today = today.strftime("%d/%m/%Y")
+        # print(today)
 
-        day = today[0:2]
-        month = today[3:5]
+        day = date.today().strftime("%d")
+        month = date.today().strftime("%m")
+        print(day, month)
 
         if month[0] == "0":
             month = month[1]
@@ -64,7 +65,6 @@ def logNewDay(day):
             # writes data to the other file
             with open('yearData.json', 'w') as yearData:
                 json.dump(year, yearData)
-
 
 def logNewHabits():
     habits["habits"].clear()

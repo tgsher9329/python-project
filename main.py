@@ -1,3 +1,13 @@
+#  the point of this project is to help you stay accountable in an easy way.
+# first thing you need to do is set habits that you want to work on. 
+# all you have to do next is start logging whether or not you completed those tasks for the day some time before you go to sleep idealy
+# you can however go to any day and change the answers if you missed a day or went on vacation
+# 
+#  I always try to stay improving on something, and if i dont keep track of it i will eventually forget about it if i am not reminded of it.
+#  this app has the potential to help improve your life. if one goal or habit of yours is to workout 6 days a week,
+# and you go back and check the previous month, and oyu only worked out 3 times a week the app wont give you answers on how to fix it, butit can let you know where the problem is
+# and step one of fixing a problem is realizing there is one
+# 
 from checks import monthLengthCheck
 from dataManip import *
 from color import *
@@ -48,11 +58,14 @@ while True:
         
         # tabulate and print table
         table = year[month]
+        # print(f"You sompleted the first habit {habitDayCount(table, month)}")
 
         # adding color to the text in the table
         if ((int(month) >= 1 and int(month) <= 12) and (habitLengthCheck(habits["habits"])) and (monthLengthCheck(month) > 0)):
 
-            colorize(table, month)
+            habitsCounter(table)
+
+            colorize(table)
             getTable(table)
             
         else:
