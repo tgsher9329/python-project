@@ -3,16 +3,17 @@ from checks import *
 with open('habitData.json', 'r') as habitData:
     habits = json.load(habitData)
 
+#?  changes the color of the text and background depending on the answer, does not save it to the file only changes the color when it is going to show the table
 def colorize(table):
     blackOnGreen = "\x1b[1;30;42m"
     blackOnRed = "\x1b[1;30;41m"
     reset = "\x1b[0m"
-
-    # try to add a counter to see how many days there is a yes to give how many days in the month each habit was completed
     
+    #?  for each day in the month
     for day in table.keys():
         x = 0
 
+        #?  for the length of each list of the day do this, then go to the next day
         while x <  len(table[day]):
             if table[day][x] == "YES":
                 table[day][x] = (blackOnGreen + "YES" + reset)
@@ -22,11 +23,12 @@ def colorize(table):
 
 
 
-# this gives the number of completed habtis each day
+#?  tells how many times that habit was completed throughout the month
 def habitsCounter(table):
     x = 0
     monthlyCounts = {}
 
+    #?  for each day in the month
     for x in table.keys():
         
         if len(table[x]) > 0:
